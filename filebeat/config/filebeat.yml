@@ -1,0 +1,16 @@
+filebeat.inputs:
+        - type: log
+          enabled: true
+          paths:
+                  - /var/log/nginx/host.access.log
+          tags: ["access"]
+
+        - tpye: log
+          enabled: true
+          paths:
+                  - /var/log/nginx/host.error.log
+          tags: ["error"]
+
+output.logstash:
+        enabled: true
+        hosts: ["logstash:5044"]
